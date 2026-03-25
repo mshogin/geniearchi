@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  geniearchi:
+    build: .
+    container_name: geniearchi
+    restart: unless-stopped
+    ports:
+      - "8789:8789"
+    volumes:
+      # Public repos (read-only)
+      - ../archlint-repo:/data/archlint:ro
+      - ../promptlint:/data/promptlint:ro
+      - ../costlint:/data/costlint:ro
+      - ../seclint:/data/seclint:ro
+      # Config
+      - ./config:/home/geniearchi/config:ro
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - CHANNEL_PORT=8789

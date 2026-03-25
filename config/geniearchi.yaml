@@ -1,0 +1,25 @@
+# GenieArchi agent configuration for deskd runtime
+
+agent:
+  name: geniearchi
+  description: "AI agent ecosystem - architecture quality, cost optimization, safety"
+
+bus:
+  socket: /tmp/deskd.sock
+
+workers:
+  - name: channel-server
+    command: "bun run /home/geniearchi/channel-server/index.ts"
+    env:
+      CHANNEL_PORT: "8789"
+
+context:
+  read_only:
+    - /data/archlint
+    - /data/promptlint
+    - /data/costlint
+    - /data/seclint
+
+security:
+  level: 1
+  note: "Minimum security level. Do not share sensitive information."
