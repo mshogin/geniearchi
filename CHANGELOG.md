@@ -35,7 +35,5 @@ All notable changes to the GenieArchi ecosystem.
 - 12 epics created tracking 67 issues across 7 repos
 
 ### What is next
-- promptlint HTTP API (POST /analyze)
-- costlint tiktoken-accurate token counting
-- seclint configurable content policies (.seclint.yaml)
-- Architecture drift alerting (baseline + regression detection)
+- Deeper analysis features across all linters
+- More integrations between tools
